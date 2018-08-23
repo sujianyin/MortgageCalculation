@@ -1,0 +1,13 @@
+{
+  "pages":[
+    "pages/calculator/calculator",
+    "pages/calculatorlast/calculatorlast",
+    "pages/rate/rate"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle":"black"
+  }
+}
