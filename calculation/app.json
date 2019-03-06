@@ -2,7 +2,10 @@
   "pages":[
     "pages/calculator/calculator",
     "pages/calculatorlast/calculatorlast",
+    "pages/taxes/taxes",
+    "pages/taxesdetail/taxesdetail",
     "pages/rate/rate"
+
   ],
   "window":{
     "backgroundTextStyle":"light",

@@ -1,0 +1,157 @@
+<view class="wrap">
+  <view class='content'>
+    <view class='item'>
+      <view class='item-l'>房屋类型</view>
+      <view class='item-r'>
+        <radio-group class="radio-box" bindchange="getHouseTypeTab">
+          <label class="radio" wx:for="{{houseType}}" wx:key="{{index}}">
+            <radio value="{{item.value}}" checked="{{item.checked}}" color='#005aff'/>
+            {{item.name}}
+          </label>
+        </radio-group>
+      </view>
+    </view>
+
+    <view wx:if="{{secondHouse.houseChoose === 0}}">
+
+      <view class='item'>
+        <picker bindchange="getFirstHouseOnlyTab" class='picker'
+                value="{{firstHouse.only}}" range="{{only}}">
+          <view class='picker-item'>
+            <text class="label">家庭唯一住房</text>
+            <view>
+              <text class="value">{{only[firstHouse.only]}}</text>
+              <text class="arrow"></text>
+            </view>
+          </view>
+        </picker>
+      </view>
+
+      <view class='item' >
+        <view class='item-l'>建筑面积</view>
+        <view class='item-r'>
+          <input type='digit' class='input' placeholder='请输入面积'
+                 value="{{firstHouse.area}}" bindinput='getFirstHouseArea'></input>
+          <view>㎡</view>
+        </view>
+      </view>
+
+      <view class='item'>
+        <view class='item-l'>总价</view>
+        <view class='item-r'>
+          <input type='digit' class='input' placeholder='请输入总价'
+                 value="{{firstHouse.price}}" bindinput='getFirstHousePrice'></input>
+          <view>万元</view>
+        </view>
+      </view>
+
+    </view>
+
+
+
+    <view wx:if="{{secondHouse.houseChoose == 1}}">
+
+      <view class='item'>
+        <picker bindchange="getResidenceTypeTab" class='picker'
+                value="{{secondHouse.residenceType}}" range="{{residenceType}}">
+          <view class='picker-item'>
+            <text class="label">住宅类型</text>
+            <view>
+              <text class="value">{{residenceType[secondHouse.residenceType]}}</text>
+              <text class="arrow"></text>
+            </view>
+          </view>
+        </picker>
+      </view>
+
+      <view class='item'>
+        <picker bindchange="getHoldingTimeTab" class='picker'
+                value="{{secondHouse.holdingTime}}" range="{{holdingTime}}">
+          <view class='picker-item'>
+            <text class="label">房屋持有时间</text>
+            <view>
+              <text class="value">{{holdingTime[secondHouse.holdingTime]}}</text>
+              <text class="arrow"></text>
+            </view>
+          </view>
+        </picker>
+      </view>
+
+      <view class='item'>
+        <view class='item-l'>买家首套住房</view>
+        <view class='item-r'>
+          <radio-group class="radio-box" bindchange="getFirstHouseTab">
+            <label class="radio" wx:for="{{isFirstHouse}}" wx:key="{{index}}">
+              <radio value="{{item.value}}" checked="{{item.checked}}" color='#005aff'/>
+              {{item.name}}
+            </label>
+          </radio-group>
+        </view>
+      </view>
+
+      <!--<view class='item'>-->
+        <!--<view class='item-l'>买家持有情况</view>-->
+        <!--<view class='item-r'>-->
+          <!--<radio-group class="radio-box" bindchange="getOnlyTab">-->
+            <!--<label class="radio" wx:for="{{only}}" wx:key="{{index}}">-->
+              <!--<radio value="{{item.value}}" checked="{{item.checked}}" color='#005aff'/>-->
+              <!--{{item.name}}-->
+            <!--</label>-->
+          <!--</radio-group>-->
+        <!--</view>-->
+      <!--</view>-->
+
+      <view class='item'>
+        <picker bindchange="getOnly" class='picker'
+                value="{{secondHouse.only}}" range="{{only}}">
+          <view class='picker-item'>
+            <text class="label">卖家持有情况</text>
+            <view>
+              <text class="value">{{only[secondHouse.only]}}</text>
+              <text class="arrow"></text>
+            </view>
+          </view>
+        </picker>
+      </view>
+
+      <view class='item'>
+        <view class='item-l'>建筑面积</view>
+        <view class='item-r'>
+          <input type='digit' class='input' placeholder='请输入建筑面积' value="{{secondHouse.area}}"
+                 bindinput='getArea'></input>
+          <view>㎡</view>
+        </view>
+      </view>
+
+      <view class='item'>
+        <view class='item-l'>上次成交价</view>
+        <view class='item-r'>
+          <input type='digit' class='input' placeholder='请输入上次成交价' value="{{secondHouse.oldPrice}}"
+                 bindinput='getOldPrice'></input>
+          <view>万元</view>
+        </view>
+      </view>
+
+      <view class='item'>
+        <view class='item-l'>本次购入价</view>
+        <view class='item-r'>
+          <input type='digit' class='input' placeholder='请输入本次购入价' value="{{secondHouse.newPrice}}"
+                 bindinput='getNewPrice'></input>
+          <view>万元</view>
+        </view>
+      </view>
+
+    </view>
+
+    <button class='btn' bindtap='onSendTab'>开始计算</button>
+  </view>
+  <view class="taxes">
+    <text bindtap='jumpMortgage'>房贷计算器</text>
+  </view>
+  <view class='admire'>
+    <view>注：</view>
+    <view>1、仅用于2016.5.1营改增以后申报纳税的住宅；</view>
+    <view>2、结果仅供参考，请以当地实际情况为准。</view>
+    <view wx:if="{{secondHouse.houseChoose === 1}}">3、经济适用房不包含在本计算中</view>
+  </view>
+</view>
