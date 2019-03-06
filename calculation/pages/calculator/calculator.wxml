@@ -149,6 +149,9 @@
     </view>
     <button class='btn' bindtap='onSendTab'>开始计算</button>
   </view>
+  <view class="taxes">
+    <text bindtap='jumpTaxes'>税费计算器</text>
+  </view>
   <view class='descript-box'>
     <view class='descript'>当前年限基准利率：商业贷款4.9%，公积金贷款3.25%。</view>
     <view class='descript'>等额本息：每月按相等的金额偿还贷款本息，其中本金逐月递增，利息逐月递减，月还款额不变。</view>

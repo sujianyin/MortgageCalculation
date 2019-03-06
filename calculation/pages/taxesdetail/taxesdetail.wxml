@@ -1,0 +1,80 @@
+<view class="wrap">
+
+  <view class='top'>
+    <text class="total-text">总税费</text>
+    <view class="total" wx:if="{{!param.houseChoose}}">
+      {{firstHouse.deedTax * 10000 + firstHouse.yhTaxes + firstHouse.maintenance}}<text>元</text>
+    </view>
+    <view class="total" wx:if="{{param.houseChoose}}">
+      {{secondHouse.total}}<text>元</text>
+    </view>
+  </view>
+  <!--<view class="item">-->
+    <!--<text>房屋总额</text>-->
+    <!--<text>90万元</text>-->
+  <!--</view>-->
+  <!--<view class="item">-->
+    <!--<text>印花税</text>-->
+    <!--<text>{{taxes.yhTaxes}}元</text>-->
+  <!--</view>-->
+  <!--<view class="item">-->
+    <!--<text>契税</text>-->
+    <!--<text>90万元</text>-->
+  <!--</view>-->
+  <!--<view class="item">-->
+    <!--<text>个人所得税</text>-->
+    <!--<text>90万元</text>-->
+  <!--</view>-->
+  <!--<view class="item">-->
+    <!--<text>增值税</text>-->
+    <!--<text>90万元</text>-->
+  <!--</view>-->
+  <!--<view class="item">-->
+    <!--<text>综合地价款</text>-->
+    <!--<text>90万元</text>-->
+  <!--</view>-->
+  <!--<view class='admire'>以上结果仅供参考，请以当地实际情况为准。</view>-->
+  <view wx:if="{{!param.houseChoose}}">
+    <view class="item">
+    <text>契税</text>
+    <text>{{firstHouse.deedTax * 10000}}元</text>
+    </view>
+    <view class="item">
+      <text>版权印花税</text>
+      <text>{{firstHouse.yhTaxes}}元</text>
+    </view>
+    <view class="item">
+      <text>房屋维修金</text>
+      <text>{{firstHouse.maintenance}}元</text>
+    </view>
+  </view>
+
+  <view wx:if="{{param.houseChoose}}">
+    <view class="item">
+      <text>契税</text>
+      <text>{{secondHouse.deedTax * 10000}}元</text>
+    </view>
+    <view class="item">
+      <text>印花税</text>
+      <text>{{secondHouse.yhTaxes}}元</text>
+    </view>
+    <view class="item">
+      <text>房屋登记费</text>
+      <text>{{secondHouse.registration}}元</text>
+    </view>
+    <view class="item">
+      <text>抵押登记费</text>
+      <text>{{secondHouse.mortgage}}元</text>
+    </view>
+    <view class="item">
+      <text>配图费</text>
+      <text>{{secondHouse.captions}}元</text>
+    </view>
+    <view class="item">
+      <text>交易手续费</text>
+      <text>{{secondHouse.formalities}}元</text>
+    </view>
+
+
+  </view>
+</view>

@@ -52,7 +52,7 @@ Page({
     }
   },
   onloadData() {
-    
+
   },
   onNavTab(e) {
     let navChoose = e.currentTarget.dataset.idx - 0;
@@ -320,6 +320,12 @@ Page({
     let s = JSON.stringify(this.data.param);
     wx.navigateTo({
       url: '../calculatorlast/calculatorlast?param=' + s
+    })
+  },
+  // 跳转至税费
+  jumpTaxes(e){
+    wx.navigateTo({
+      url: '../taxes/taxes'
     })
   }
 })
